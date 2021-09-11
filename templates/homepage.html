@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block title %}Homepage{% endblock %}
+{% block content %} 
+<h1 class="text-secondary"><b>Our Pets</b></h1>
+
+<div class="col">
+    <table>
+        <tr class="row">
+            {% for pet in pets %}
+            <td class="col align-items-start">
+                <div class="card m-1" style="width: 18rem;">
+                    <img src={{pet.photo_url}} alt="Sorry, couldn't find a photo">
+                    <div class="card-body">
+                        {% if pet.available %}   
+                            <h5 class="card-title text-secondary">{{pet.name}}<span class="text-success text-opacity-75"><b> is available!</b></span></h5>
+                        {% else %}
+                            <h5 class="card-title text-secondary">{{pet.name}}<span class="text-danger text-opacity-75"><b> is not available</b></span></h5>
+                        {% endif %}
+                        <p class="card-text">Additional info: {{pet.notes}}</p>
+                        <a href="/{{pet.id}}" class="btn btn-outline-success opacity-75 btn-sm">Edit Info</a>
+                    </div>
+                </div>                
+            </td>
+            {% endfor %}
+        </tr>
+    </table>
+</div>
+<a href="/new" class="btn  btn-success opacity-75 btn-lg">Add a Pet</a>
+
+
+{% endblock %}
