@@ -1,4 +1,3 @@
-from typing import AsyncGenerator
 from flask_sqlalchemy import SQLAlchemy
 
 db = SQLAlchemy()
