@@ -2,12 +2,9 @@
 {% block title %}Homepage{% endblock %}
 {% block content %} 
 <h1 class="text-secondary"><b>Our Pets</b></h1>
-
-<div class="col">
-    <table>
-        <tr class="row">
-            {% for pet in pets %}
-            <td class="col align-items-start">
+    <div class="row">
+        {% for pet in pets %}
+            <div class="col align-items-start">
                 <div class="card m-1" style="width: 18rem;">
                     <img src={{pet.photo_url}} alt="Sorry, couldn't find a photo">
                     <div class="card-body">
@@ -20,12 +17,8 @@
                         <a href="/{{pet.id}}" class="btn btn-outline-success opacity-75 btn-sm">Edit Info</a>
                     </div>
                 </div>                
-            </td>
-            {% endfor %}
-        </tr>
-    </table>
-</div>
+            </div>
+        {% endfor %}
+    </div>
 <a href="/new" class="btn  btn-success opacity-75 btn-lg">Add a Pet</a>
-
-
 {% endblock %}
